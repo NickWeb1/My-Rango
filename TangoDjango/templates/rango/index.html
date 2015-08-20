@@ -7,7 +7,16 @@
     <body>
         <h1> Home </h1>
         <p> Welcome to the Rango home page</p>
-        <p> See what we are about on the <a href="">{{ bold_message }} page</a></p>
+        {% if categories %}
+            <ul>
+                {% for category in categories %}
+                    <li>{{ category.name }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p><strong>No Categories at this time</strong></p>
+        {% endif %}
+        <p> See what we are about on the <a href="/rango/about/"><strong>About </strong>page</a></p>
         <img src = '{% static "images/car.jpeg" %}' alt = "car" />
     </body>
 
